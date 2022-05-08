@@ -6,9 +6,25 @@
     <a href="/route/logout">Logout</a></div>
     <h3> Dealers Dashboard </h3>
     <div class="container py-5 mt-5" id="dealers">
-<!--<%= locals.dealer_data ? dealer_data : "gfhgfhfgj" %>-->
-<%= locals.dealer_data%>
-    </div>
-</div>
+<table id="dealersTable" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+  <tr>
+    <th class="th-sm">BAC</th>
+    <th class="th-sm">Name</th>
+    <th class="th-sm">City</th>
+    <th class="th-sm">State</th>
+    <th class="th-sm">Country</th>
+    <th class="th-sm">Brand</th>
+  </tr>
+<% for (var i = 0; i < data.length; i++) { %>
+    <tr>
+      <td><a href="/vehicle"><%= data[i].bac %></a></td>
+      <td><a href="/vehicle"><%= data[i].name %></a></td>
+      <td><a href="/vehicle"><%= data[i].city %></a></td>
+      <td><a href="/vehicle"><%= data[i].state %></a></td>
+      <td><a href="/vehicle"><%= data[i].country %></a></td>
+      <td><a href="/vehicle"><%= data[i].brand %></a></td>
+    </tr>
+  <% } %>
+ </table>
 
 <%- include('footer') -%>

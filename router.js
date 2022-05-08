@@ -23,18 +23,25 @@ router.post('/login', (req, res)=>{
 // route for dashboard
 router.get('/dashboard', (req, res) => {
  if(req.session.user){
-
+        var data = ""
         request.get(dealer_url, (error,response)=> {
             const dealer_data = JSON.parse(response.body)
-            req.session.dealer_data = dealer_data[0].brand
-            console.log(req.session.dealer_data )
+            data = dealer_data
+            console.log(data)
+            res.render('dashboard', {user: req.session.user, data : data})
         })
 
-        res.render('dashboard', {user : req.session.user},{dealer_data : req.session.dealer_data})
+
     }else{
         res.send("Unauthorized User")
     }
 })
+
+// route for Vehicle Details
+router.post('/vehicle', (req, res)=>{
+    res.render('vehicle')
+    console.log("success");
+});
 
 // route for logout
 router.get('/logout', (req ,res)=>{
