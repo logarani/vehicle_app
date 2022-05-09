@@ -28,7 +28,7 @@ app.use('/route', router);
 
 // home route
 app.get('/', (req, res) =>{
-    res.render('base', { title : "Login"});
+    res.render('base', { title : "CXZ>TRAC"});
 })
 
 app.listen(port, ()=>{ console.log("Listening to the server on http://localhost:3000")});

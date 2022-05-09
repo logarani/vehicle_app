@@ -1,17 +1,13 @@
 
 <%- include('header') -%>
 
-
 <div class="text-center center-div" id="login">
-    <div class="container w-25 border py-5">
-        <div class="title pb-5">
+    <p class="alignCenter">
+         <a href=""><img src="/static/XTRAC.png"></a>
+     </p>
+
+    <div class="container w-25 border login">
             <h2 class="font-weight-bold">Login</h2>
-            <% if(locals.logout){ %>
-                <span class="alter alert-success text-center">
-                    <%= logout %>
-                </span>
-            <% } %>
-        </div>
         <form action="/route/login" method="POST" class="pt-3">
             <div class="form-group">
                 <input type="text" class="form-control" placeholder="User Name" name="username">
@@ -19,7 +15,7 @@
             <div class="form-group">
                 <input type="password" class="form-control" name="password" placeholder="Password">
             </div>
-            <button type="submit" class="btn btn-success rounded-pill">Submit</button>
+            <button type="submit" class="btn">Submit</button>
         </form>
     </div>
 </div>

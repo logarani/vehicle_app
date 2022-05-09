@@ -1,17 +1,13 @@
 <%- include('header') -%>
+<%- include('banner') -%>
 
+<div class="text-center mt-3">
 
-<div class="text-center center-div" id="login">
-    <div class="container w-25 border py-5">
-        <div class="title pb-5">
-        <h1>Vehicle page</h1>
-         </div>
-        <form action="/vehicle" method="POST" class="pt-3">
-            <div class="form-group">
+    <h3> Vehicle Details </h3>
 
-            </div>
-            <button type="submit" class="btn btn-success rounded-pill">Back</button>
-        </form>
+    <div class="container py-5" id="dealers">
+       <button class="btn" onclick="history.back()">Back</button>
+        <button class="btn" onclick="/route/dashboard">Home</button>
     </div>
 </div>
 

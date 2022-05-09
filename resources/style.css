@@ -2,16 +2,29 @@
 
 body{
     font-family: 'Open Sans', sans-serif;
-    background-size: cover;
     background-repeat: no-repeat;
+    background-color: #253a47;
+    color: #ffffff;
 }
 
 .center-div{
-    padding-top: 10%;
+    padding-top: 5%;
+}
+
+.login{
+    padding: 2rem!important;
+    border-radius: 20px;
+}
+
+.btn{
+    padding: .4em 2em;
+    background-color: #ff9900;
+    border-radius: 1rem!important;
 }
 
 .btn.btn-success{
     padding: .4em 2em;
+    background-color: green;
 }
 
 form{
@@ -20,4 +33,29 @@ form{
 
 #login .title > span{
     font-size: .8em;
+}
+
+.header{
+    background-color: aliceblue;
+}
+
+td a:visited {
+    color:ghostwhite;
+}
+
+.table-sm {
+  th,
+  td {
+    padding: 0.5rem;
+  }
+}
+
+.userBanner {
+    padding-top: 80px;
+    text-align: right;
+    padding-right: 40px;
+}
+
+.alignCenter {
+    text-align: center;
 }

@@ -38,9 +38,9 @@ router.get('/dashboard', (req, res) => {
 })
 
 // route for Vehicle Details
-router.post('/vehicle', (req, res)=>{
-    res.render('vehicle')
-    console.log("success");
+router.get('/vehicle', (req, res)=>{
+    res.render('vehicle',{user: req.session.user})
+    console.log("success")
 });
 
 // route for logout
@@ -48,7 +48,7 @@ router.get('/logout', (req ,res)=>{
     req.session.destroy(function(err){
         if(err){
             console.log(err);
-            res.send("Error")
+           res.render('error')
         }else{
                      res.render('base')
                  }
