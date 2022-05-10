@@ -61,7 +61,6 @@ router.get('/vehicle', (req, res)=>{
 router.get('/logout', (req ,res)=>{
     req.session.destroy(function(err){
         if(err){
-            console.log(err);
             res.render('error')
         }else{
             res.render('base')
