@@ -8,6 +8,7 @@
 
     <div class="container w-25 border login">
             <h2 class="font-weight-bold">Login</h2>
+            <span><%= locals.errorMsg%> </span>
         <form action="/route/login" method="POST" class="pt-3">
             <div class="form-group">
                 <input type="text" class="form-control" placeholder="User Name" name="username">

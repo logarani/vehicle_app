@@ -2,9 +2,9 @@
 <%- include('banner') -%>
 
 <div class="text-center">
-    <h3> Dealers Dashboard </h3>
+    <div id="title"><h3> Dealers Dashboard </h3></div>
 
-    <div class="container py-5" id="dealers">
+    <div id="container" class="container py-5" id="dealers">
         <table id="dealersTable" class="table table-striped table-hover table-bordered table-sm" cellspacing="0" width="100%">
           <tr>
             <th class="th-sm header">BAC</th>
@@ -16,51 +16,16 @@
           </tr>
         <% for (var i = 0; i < data.length; i++) { %>
             <tr>
-              <td class="td-sm"><a href="./vehicle"><%= data[i].bac %></a></td>
-              <td class="td-sm"> <a href="./vehicle"><%= data[i].name %></a></td>
-              <td class="td-sm"><a href="./vehicle"><%= data[i].city %></a></td>
-              <td class="td-sm"><a href="./vehicle"><%= data[i].state %></a></td>
-              <td class="td-sm"><a href="./vehicle"><%= data[i].country %></a></td>
-              <td class="td-sm"><a href="./vehicle"><%= data[i].brand %></a></td>
+            <td class="td-sm"> <button class="tablebtn" onclick="populateVehicleDetails( <%= data[i].bac %> )"><%= data[i].bac %></button></td>
+            <td class="td-sm"> <button class="tablebtn" onclick="populateVehicleDetails( <%= data[i].bac %> )"><%= data[i].name %></button></td>
+            <td class="td-sm"> <button class="tablebtn" onclick="populateVehicleDetails( <%= data[i].bac %> )"><%= data[i].city %></button></td>
+            <td class="td-sm"> <button class="tablebtn" onclick="populateVehicleDetails( <%= data[i].bac %> )"><%= data[i].state %></button></td>
+            <td class="td-sm"> <button class="tablebtn" onclick="populateVehicleDetails( <%= data[i].bac %> )"><%= data[i].country %></button></td>
+            <td class="td-sm"> <button class="tablebtn" onclick="populateVehicleDetails( <%= data[i].bac %> )"><%= data[i].brand %></button></td>
             </tr>
-
-                <tr>
-                  <td class="td-sm"><a href="./vehicle"><%= data[i].bac %></a></td>
-                  <td class="td-sm"> <a href="./vehicle"><%= data[i].name %></a></td>
-                  <td class="td-sm"><a href="./vehicle"><%= data[i].city %></a></td>
-                  <td class="td-sm"><a href="./vehicle"><%= data[i].state %></a></td>
-                  <td class="td-sm"><a href="./vehicle"><%= data[i].country %></a></td>
-                  <td class="td-sm"><a href="./vehicle"><%= data[i].brand %></a></td>
-                </tr>
-
-                    <tr>
-                      <td class="td-sm"><a href="./vehicle"><%= data[i].bac %></a></td>
-                      <td class="td-sm"> <a href="./vehicle"><%= data[i].name %></a></td>
-                      <td class="td-sm"><a href="./vehicle"><%= data[i].city %></a></td>
-                      <td class="td-sm"><a href="./vehicle"><%= data[i].state %></a></td>
-                      <td class="td-sm"><a href="./vehicle"><%= data[i].country %></a></td>
-                      <td class="td-sm"><a href="./vehicle"><%= data[i].brand %></a></td>
-                    </tr>
-
-                            <tr>
-                              <td class="td-sm"><a href="./vehicle"><%= data[i].bac %></a></td>
-                              <td class="td-sm"> <a href="./vehicle"><%= data[i].name %></a></td>
-                              <td class="td-sm"><a href="./vehicle"><%= data[i].city %></a></td>
-                              <td class="td-sm"><a href="./vehicle"><%= data[i].state %></a></td>
-                              <td class="td-sm"><a href="./vehicle"><%= data[i].country %></a></td>
-                              <td class="td-sm"><a href="./vehicle"><%= data[i].brand %></a></td>
-                            </tr>
-
-                                <tr>
-                                  <td class="td-sm"><a href="./vehicle"><%= data[i].bac %></a></td>
-                                  <td class="td-sm"> <a href="./vehicle"><%= data[i].name %></a></td>
-                                  <td class="td-sm"><a href="./vehicle"><%= data[i].city %></a></td>
-                                  <td class="td-sm"><a href="./vehicle"><%= data[i].state %></a></td>
-                                  <td class="td-sm"><a href="./vehicle"><%= data[i].country %></a></td>
-                                  <td class="td-sm"><a href="./vehicle"><%= data[i].brand %></a></td>
-                                </tr>
           <% } %>
          </table>
     </div>
 </div>
+
 <%- include('footer') -%>

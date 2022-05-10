@@ -1,3 +1,38 @@
+ <script>
+      function populateVehicleDetails(bac) {
+        const vehicle_url = "https://bb61co4l22.execute-api.us-west-2.amazonaws.com/development/vehicles/" + bac
+        const containerDisplay = document.querySelector('#container')
+        var result ;
+        fetch(vehicle_url)
+            .then(res => {
+             console.log( "response status " + res.status);
+             if(res.status === 500){
+                 document.getElementById('title').innerHTML = "";
+                 document.getElementById('container').innerHTML = "<h3> There is an error. Please try again later.</h3>";
+             }
+             else return res.json();
+            }).then(json=>{
+
+            const html =
+            '<table id="vehicleTable" class="table table-striped table-hover table-bordered table-sm" cellspacing="0">' +
+                '<tr><td class="td-sm heading"> BAC </td> <td class="td-sm">' + json.bac + '</td></tr>' +
+                '<tr><td class="td-sm heading"> Color </td> <td class="td-sm">' + json.color +'</td></tr>' +
+                '<tr><td class="td-sm heading"> CTP Status </td> <td class="td-sm">' + json.ctpStatus +'</td></tr>' +
+                '<tr><td class="td-sm heading"> Make </td> <td class="td-sm">' + json.make +'</td></tr>' +
+                '<tr><td class="td-sm heading"> Model </td> <td class="td-sm">' + json.model +'</td></tr>' +
+                '<tr><td class="td-sm heading"> On Star Status</td> <td class="td-sm">' + json.onstarStatus +'</td></tr>' +
+                '<tr><td class="td-sm heading"> Stock Number </td> <td class="td-sm">' + json.stockNumber +'</td></tr>' +
+                '<tr><td class="td-sm heading"> Telemetry PNID </td> <td class="td-sm">' + json.telemetryPnid +'</td></tr>' +
+                '<tr><td class="td-sm heading"> VIN </td> <td class="td-sm">' + json.vin +'</td></tr>' +
+                '<tr><td class="td-sm heading"> Year </td> <td class="td-sm">' + json.year +'</td></tr>' +
+            '</table>' +
+            '<div><button class="btn"><a href="./dashboard">Back</a></button></div>'
+            document.getElementById('title').innerHTML = "<h3>" + " Vehicle details" + "</h3>";
+            document.getElementById('container').innerHTML = html;
+            console.log(json)
+            }).catch(err => console.log( err));
+      }
+</script>
 
 </body>
 </html>

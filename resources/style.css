@@ -43,11 +43,12 @@ td a:visited {
     color:ghostwhite;
 }
 
-.table-sm {
-  th,
-  td {
-    padding: 0.5rem;
+td {
+    color: aliceblue;
   }
+
+.heading {
+    background-color: lightslategrey;
 }
 
 .userBanner {
@@ -58,4 +59,21 @@ td a:visited {
 
 .alignCenter {
     text-align: center;
+}
+
+.welcomeSpan{
+    font-weight:bold;
+    padding:5px
+}
+
+.homeBtn{
+    font-weight:bold;
+    border-radius:20px
+}
+
+
+.tablebtn{
+    background-color: transparent;
+    color: aliceblue;
+    border: none;
 }

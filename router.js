@@ -16,31 +16,45 @@ router.post('/login', (req, res)=>{
         req.session.user = req.body.username;
         res.redirect('/route/dashboard');
     }else{
-        res.end("Invalid Username")
+        if(req.body.username != credential.username && req.body.password != credential.password){
+            res.render('base',{errorMsg: "Invalid credentials"})
+        }
+        else if(req.body.username != credential.username){
+            res.render('base',{errorMsg: "Invalid User Name"})
+        }
+        else {
+             res.render('base',{errorMsg: "Invalid Password"})
+        }
     }
 });
 
 // route for dashboard
 router.get('/dashboard', (req, res) => {
- if(req.session.user){
+    if(req.session.user){
         var data = ""
         request.get(dealer_url, (error,response)=> {
-            const dealer_data = JSON.parse(response.body)
-            data = dealer_data
-            console.log(data)
-            res.render('dashboard', {user: req.session.user, data : data})
+            var dealer_data = JSON.parse(response.body)
+
+             if(dealer_data.length === undefined){
+                 res.render('error')
+             } else{
+                data = dealer_data
+                res.render('dashboard', {user: req.session.user, data : data})
+            }
         })
-
-
-    }else{
-        res.send("Unauthorized User")
+    } else{
+        //"Unauthorized User"
+        res.render('base',{errorMsg: "Please login to continue"})
     }
 })
 
-// route for Vehicle Details
+// route for Error Page
+router.get('/error', (req, res)=>{
+    res.render('error',{user: req.session.user})
+});
+
 router.get('/vehicle', (req, res)=>{
     res.render('vehicle',{user: req.session.user})
-    console.log("success")
 });
 
 // route for logout
@@ -48,35 +62,11 @@ router.get('/logout', (req ,res)=>{
     req.session.destroy(function(err){
         if(err){
             console.log(err);
-           res.render('error')
+            res.render('error')
         }else{
-                     res.render('base')
-                 }
+            res.render('base')
+        }
     })
 })
-
-
-
-/*
-
-request.get(dealer_url,function(req, res) {
-    const dealer_data = JSON.parse(res.body)
-    res.render('dashboard', { arr: dealer_data })
-    console.log(dealer_data)
-})
-        fetch(dealer_url)
-          .then(res => {
-            console.log(res.ok) // true
-            console.log(res.status) // 200
-            const dealer_data = JSON.parse(response.body)
-             console.log(dealer_data)
-             res.render('dashboard', {dealer_data : dealer_data})
-            return res.json()
-          })
-
-request({url : vehicle_url},(error,response) =>{
-    const data = JSON.parse(response.body)
-    console.log(data)
-})*/
 
 module.exports = router;

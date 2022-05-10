@@ -1,9 +1,10 @@
-    <div class="text right-div">
-        <div>
-        <a href=""><img style="float:right;padding-right: 40px;" src="/static/logo1.png"></a>
-        </div>
-        <div class="userBanner">
-             Welcome <span style="font-weight:bold; padding:5px" >  <%= locals.user ? user : "User" %> </span>
-             <a href="/route/logout">Logout</a>
-        </div>
+<div class="text right-div">
+    <div>
+    <a href=""><img style="float:right;padding-right: 40px;" src="/static/logo1.png"></a>
     </div>
+    <div class="userBanner">
+        <button class="homeBtn"><a href="./dashboard">Home</a></button>
+         Welcome <span class="welcomeSpan" >  <%= locals.user ? user : "User" %> </span>
+         <a href="/route/logout">Logout</a>
+    </div>
+</div>
