@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --watchAll",
     "start": "nodemon server.js"
   },
   "keywords": [],
@@ -19,6 +19,11 @@
     "node-fetch": "^3.2.4",
     "nodemon": "^2.0.16",
     "request": "^2.88.2",
+    "superagent": "^7.1.3",
     "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "jest": "^28.1.0",
+    "supertest": "^6.2.3"
   }
 }
