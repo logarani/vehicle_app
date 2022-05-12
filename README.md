@@ -1,7 +1,9 @@
-**Deployment URL's :**
-Credentials:
+
+Credentials to login:
 User name: staff1
 Password: 12345
+
+**Deployment URL's :**
 
 **Heroku Website URL:** https://limitless-lake-21187.herokuapp.com/ 
 
